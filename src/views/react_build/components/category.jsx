@@ -145,11 +145,3 @@ import axios from "axios";
 }
 
 export default ReplyForm;*/
-
-export default function Category() {
-  return (
-    <div>
-      <p>What it do?</p>
-    </div>
-  )
-}
