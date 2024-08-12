@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Hoop Squad</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Madimi+One&display=swap" rel="stylesheet">
+
+    <link rel="icon" type="image/x-icon" href="./images/basketball_player2.jpg">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/project_5.css"/>
+
+</head>
+
+<body>
+
+    <nav class="navbar px-3 my-4">
+        <div class="row">
+            <div class="col-3">
+                <img src="./images/basketball_player4.jpg" height="180" alt="app logo">
+            </div>
+            <div class="col-5">
+                <a class="navbar-brand" href="#">Hoop Squad</a>        
+            </div>
+        </div>
+    </nav>
+       
+    <form class="validation-form my-4 needs-validation" action="login" method="POST">      
+        <div class="form-group row">
+            <div class="col-6 offset-1">
+                <label class="container-fluid p-0" >
+                    <svg xmlns="http://www.w3.org/2000/svg" height="36px" viewBox="0 -960 960 960" width="36px" fill="#ea33f7"><path d="M480-480q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47ZM160-160v-112q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v112H160Zm80-80h480v-32q0-11-5.5-20T700-306q-54-27-109-40.5T480-360q-56 0-111 13.5T260-306q-9 5-14.5 14t-5.5 20v32Zm240-320q33 0 56.5-23.5T560-640q0-33-23.5-56.5T480-720q-33 0-56.5 23.5T400-640q0 33 23.5 56.5T480-560Zm0-80Zm0 400Z"/></svg>
+                </label>
+                <input type="text" name="username" class="form-control" placeholder="Username" value="" id="username" required>                                                 
+            </div>
+            <div class="col-5">
+                <p id="username-text" style="color:red; margin-top:52px; margin-left:90px"></p>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-6 offset-1">
+                <label class="container-fluid p-0">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="36px" viewBox="0 -960 960 960" width="36px" fill="#ea33f7"><path d="M240-80q-33 0-56.5-23.5T160-160v-400q0-33 23.5-56.5T240-640h40v-80q0-83 58.5-141.5T480-920q83 0 141.5 58.5T680-720v80h40q33 0 56.5 23.5T800-560v400q0 33-23.5 56.5T720-80H240Zm0-80h480v-400H240v400Zm240-120q33 0 56.5-23.5T560-360q0-33-23.5-56.5T480-440q-33 0-56.5 23.5T400-360q0 33 23.5 56.5T480-280ZM360-640h240v-80q0-50-35-85t-85-35q-50 0-85 35t-35 85v80ZM240-160v-400 400Z"/></svg>
+                </label>
+                <input type="password" name="password" class="form-control" placeholder="Password" value="" id="password" required>                                              
+            </div>
+            <div class="col-5">
+                <p id="password-text" style="color:red; margin-top:52px; margin-left:90px"></p>   
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-light offset-1" onclick="loginAccess()">Play the game</button>    
+    </form>
+
+    
+    <div class="home-box text-center my-4">
+        <img src="./images/basketball_player6.jpg" class="img-player" height="180" alt="home box">
+        <p>Not on the team yet, player?  Then you're in the wrong part of the gym.  Click here to register.</p>
+        <div class="nav-item text-center">
+            <a class="btn btn-light" href="registration" role="button">Register</a>
+        </div>
+    </div>
+
+    <div class="home-box text-center my-4">
+        <img src="./images/basketball_player6.jpg" class="img-player" height="180" alt="home box">
+        <p>Need to reconsider your options, player?  That's alright.  Come back when your head is in the game.</p>
+        <div class="nav-item text-center">
+            <a class="btn btn-light" href="home" role="button">Step out of the locker room</a>
+        </div>
+    </div>
+
+    <div class="text-center">
+        <img src="./images/basketball4.jpg" class="img-ball" height="180" alt="company logo">
+        <h4>The Virtual Basketball Association:  where it's game time, all the time</h4>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    
+    <script src="./js/special_effects.js"></script>
+    <script defer src="./js/validation.js"></script>
+
+</body>
+
+</html>

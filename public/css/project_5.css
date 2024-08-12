@@ -1,0 +1,165 @@
+
+body {
+    background:  linear-gradient(to right, maroon, rgb(218, 0, 44))
+}    
+
+.navbar {
+    background-image: url('basketball_court4.jpg');
+    background-position: right;
+}
+
+.navbar-brand {
+    margin-left: 40px;
+    font-size: 72px;
+    font-family: "Madimi One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.nav-link {
+    font-size:  24px;
+    font-family: "Madimi One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color:  black;
+}
+
+.container {
+    background-image:  url('basketball_court.jpg');
+    background-repeat: no-repeat;
+    background-position:  center;
+    background-color: black;
+    color:  white;
+    border:  outset orange 5px;
+    position: relative;
+    height:  300px;
+    overflow-y:  scroll;
+    cursor:  crosshair;
+}
+
+h1 {
+    padding-top:  8px;
+    padding-bottom:  8px;
+    font-family: "Madimi One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.btn-light {
+    font-family: "Madimi One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    margin-top:  12px;
+    transition:  500ms ease;
+}
+
+.btn-light:hover {
+    background-image: url('basketball.jpg');
+    color:  white;
+    margin-top: 12px;
+    transition:  500ms ease;
+}
+
+.validation-form {
+    background-image:  url('basketball_court.jpg');
+    background-repeat: no-repeat;
+    background-position:  center;
+    background-color:  black;
+    color:  white;
+    border:  outset orange 5px;
+    width:  70%;
+    margin:  auto;
+    padding:  12px;
+    cursor:  crosshair;
+}
+
+.home-box {
+    background-color:  black;
+    color:  white;
+    border:  outset orange 5px;
+    width:  70%;
+    margin:  auto;
+    padding:  12px;
+    cursor:  crosshair;
+}
+
+.forum-box {
+    background-color:  black;
+    color:  white;
+    border:  outset orange 5px;
+    width:  70%;
+    margin:  auto;
+    padding:  12px;
+    cursor:  crosshair;
+}
+
+.category-box {
+    background-image:  url('basketball_court.jpg');
+    background-repeat: no-repeat;
+    background-position:  center;
+    background-color: black;
+    color:  white;
+    border:  outset orange 5px;
+    position: relative;
+    height:  500px;
+    padding:  12px;
+    cursor: crosshair;
+    overflow-y:  scroll;   
+}
+
+.discussion-box {
+    background-color: black;
+    color:  white;
+    border:  outset orange 5px;
+    position: relative;
+    height:  500px;
+    padding:  12px;
+    cursor:  crosshair;  
+    overflow-y:  scroll;  
+}
+
+section {
+    border:  outset orange 5px;
+    padding:  16px;
+}
+
+h3 {
+    padding-top:  16px;
+    font-family: "Madimi One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+h4 {
+    color:  black;
+}
+
+input {
+    margin-top:  12px;
+    margin-bottom:  8px;
+}
+
+/*.form-control {
+    border: solid 2px rgba(0, 0, 0, 0);
+}
+
+.form-control:focus {
+    border: solid 2px orange;
+}*/
+
+label {
+    border:  solid 2px rgba(0, 0, 0, 0);
+}
+
+div:has(input:focus) > label {
+    border:  outset 2px orange;
+}
+
+/*.needs-validation label {
+    background-color:  red;
+}*/
+
+
+
+
+/*color:  rgb(218, 0, 44);        background: linear-gradient(to right, purple, rgb(209, 52, 188));*/
