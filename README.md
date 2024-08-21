@@ -31,3 +31,9 @@ Technologies:  html, css, js, react, express, sql
 Minimal Requirements:  Node 13.14.0, NPM 6.14.4, Express 4.19.2, EJS 3.1.10, MySQL 8.0.38, React 18.3.1
 
 Improvements:  add Gulp for testing and debugging, figure out why the React code is not working, make the username of the currently logged-in user appear on the Dashboard page, use MySQL to store registered user information instead of hard-coding it onto the server
+
+
+
+*copy the link below to use the Hoop Squad page*
+
+https://hoop-squad-64060117364e.herokuapp.com/
