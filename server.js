@@ -56,7 +56,7 @@ app.delete('/dashboard', (req, res) => {
 
 app.use(express.static('public'));
 app.use(express.static('src/views'));
-app.use(express.static('dist'));
+app.use(express.static('src/views/dist'));
 app.use(express.json());
 app.use(cors());
 
