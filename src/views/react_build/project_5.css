@@ -1,4 +1,3 @@
-
 body {
     background:  linear-gradient(to right, maroon, rgb(218, 0, 44))
 }    
@@ -139,14 +138,6 @@ input {
     margin-bottom:  8px;
 }
 
-/*.form-control {
-    border: solid 2px rgba(0, 0, 0, 0);
-}
-
-.form-control:focus {
-    border: solid 2px orange;
-}*/
-
 label {
     border:  solid 2px rgba(0, 0, 0, 0);
 }
@@ -155,11 +146,28 @@ div:has(input:focus) > label {
     border:  outset 2px orange;
 }
 
-/*.needs-validation label {
-    background-color:  red;
-}*/
+.question-input {
+    margin:  auto;
+    width:  90%;
+}
 
+.question-post {
+    margin:  auto;
+    font-size:  32px;
+    max-width:  90%;
+    margin-bottom:  32px;
+    border-top:  outset 2px orange;
+    overflow-wrap:  normal;
+}
 
+.reply-input {
+    margin:  auto;
+}
 
-
-/*color:  rgb(218, 0, 44);        background: linear-gradient(to right, purple, rgb(209, 52, 188));*/
+.reply-post {
+    margin:  auto;
+    max-width:  90%;
+    padding-top:  16px;
+    padding-bottom:  16px;
+    overflow-wrap:  normal;
+}
