@@ -1,17 +1,17 @@
 {
   "name": "hoop_squad",
   "version": "1.0.0",
-  "description": "node express forum project",
+  "description": "project 5 server file",
   "main": "index.js",
   "scripts": {
-    "test": "run project",
+    "test": "jest",
     "start": "node server.js",
     "build": "del dist && webpack --mode development",
     "dev": "nodemon server.js"
   },
   "repository": {
     "type": "git",
-    "url": "project-5-new-version"
+    "url": "https://github.com/jbossgotskillz/project-5-new-version"
   },
   "keywords": [
     "project",
@@ -27,7 +27,7 @@
   "license": "ISC",
   "dependencies": {
     "@popperjs/core": "^2.11.8",
-    "axios": "^1.7.2",
+    "axios": "^1.7.4",
     "bcryptjs": "^2.4.3",
     "bootstrap": "^5.3.3",
     "cors": "^2.8.5",
@@ -37,7 +37,8 @@
     "jsonwebtoken": "^9.0.2",
     "mysql": "^2.18.1",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.3.0"
   },
   "devDependencies": {
     "@babel/core": "^7.24.9",
@@ -52,6 +53,9 @@
     "style-loader": "^3.3.4",
     "template-ejs-loader": "^0.9.4",
     "webpack": "^5.93.0",
-    "webpack-cli": "^5.1.4"
+    "webpack-cli": "^4.9.2"
+  },
+  "engines": {
+    "node": "13.x"
   }
 }
