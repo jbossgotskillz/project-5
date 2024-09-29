@@ -5,8 +5,8 @@ CREATE TABLE registration (
     id integer PRIMARY KEY AUTO_INCREMENT,
     username VARCHAR(30) NOT NULL,
     email TEXT NOT NULL,
-    new_password VARCHAR(30) NOT NULL,
-    confirm_password VARCHAR(30) NOT NULL,
+    new_password VARCHAR(60),
+    confirm_password VARCHAR(60),
     created TIMESTAMP NOT NULL DEFAULT NOW()
 );
 
