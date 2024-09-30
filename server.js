@@ -5,12 +5,13 @@ const bcrypt = require('bcryptjs')
 
 const path = require('path')
 const app = express()
-const port = 3306
+const port = 3000
 
 //database integration
 
 const connection = mysql.createConnection({
     host:  ['localhost', 'hoop-squad-64060117364e.herokuapp.com'],
+    port:  3306,
     user:  'root',
     password:  'Therealjboss#1!',
     database:  'hoop_squad_db'
