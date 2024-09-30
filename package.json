@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest",
     "start": "node server.js",
-    "build": "dist && webpack --mode production",
+    "build": "del dist && webpack --mode production",
     "dev": "nodemon server.js"
   },
   "repository": {
