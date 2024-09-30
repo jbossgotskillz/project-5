@@ -10,7 +10,7 @@ const port = 3000
 //database integration
 
 const connection = mysql.createConnection({
-    host:  'localhost',
+    host:  'localhost', 'hoop-squad-64060117364e.herokuapp.com/',
     user:  'root',
     password:  'Therealjboss#1!',
     database:  'hoop_squad_db'
