@@ -1,66 +1,80 @@
-if (process.env.NODE_ENV !== "production") {
-    require("dotenv").config()
-}
-
 const express = require('express')
 const cors = require('cors')
-const mysql = require('mysql')
+const mysql = require('mysql2')
 const bcrypt = require('bcryptjs')
 
 const path = require('path')
 const app = express()
 const port = 3000
 
+//database integration
+
+const connection = mysql.createConnection({
+    host:  'localhost',
+    user:  'root',
+    password:  'Therealjboss#1!',
+    database:  'hoop_squad_db'
+});
+
 //user registration
 
-const users = []
+app.use(express.urlencoded({extended: false}))
 
-app.use(express.urlencoded({extended: false}));
+app.post('/registration', (req, res) => {
+    const { username, email, password } = req.body;
 
-app.post('/registration', async (req, res) => {
+    bcrypt.hash(password, 10, (err, hash) => {
+        if (err) {
+            console.error('Error hashing password:', err);
+            return res.status(500).send('Error registering user');
+        }
+        console.log(username, email, password)
+
+        connection.query('INSERT INTO registration (username, email, new_password) VALUES (?, ?, ?)',
+        [username, email, hash], (err, result) => {
+            if (err) {
+                console.error('Error inserting user:', err);
+                return res.status(500).send('Error registering user');
+                //res.redirect('/registration')
+
+            }
+
+            //res.status(200).send('User registered successfully');
+            res.redirect('/login')
+
+        }
+    );
+    });
+});
+
+app.post('/login', (req, res) => {
+    const { username, email, password } = req.body;
+
     try {
-        const { username, email, password } = req.body;
-        const hash = await bcrypt.hash(password, 10);
-        users.push({
-            id: Date.now().toString(),
-            username: username,
-            email: email,
-            password: hash,
-            confirm_password: hash
-        });
-        console.log(users);
-        res.redirect('/login')
-    } catch (err) {
-        console.log(err);
-        res.redirect('/registration')
-    }
-})
+        const [rows] =  connection.query('SELECT username, email, new_password FROM registration',
+        [username, email, password], (err, result) => {
+            if (rows.length === 0) {
+                res.send('Invalid login credentials')
+            }
 
-app.post('/login', async (req, res) => {
-    const { username, password } = req.body
-    const user = users.find(u => u.username === username)
-    if (!user) {
-       return res.status(400).send('Username cannot be found')     
+            const user = rows[0];
+            const isMatch = bcrypt.compare(password, user.password)
+            if (!isMatch) {
+                res.send('Invalid login credentials')
+            } else {
+                res.redirect('/dashboard')
+            }
+        })
+    } catch (error) {
+        console.error(error);
     }
-    const isValid = await bcrypt.compare(password, user.password)
-    if (!isValid) {
-        return res.status(400).send('Password does not match')
-    }
-    res.redirect('/dashboard')
 })
 
 app.delete('/dashboard', (req, res) => {
-    res.logOut()
     res.redirect('/logout')
 })
 
-app.use(express.static('public'));
-app.use(express.static('src/views'));
-app.use(express.static('src/views/dist'));
-app.use(express.json());
-app.use(cors());
-
-//Express integration
+//server routing
 
 app.get('/', (req, res) => {
     res.render('main')
@@ -95,9 +109,11 @@ app.get('/forum', (req, res) => {
     res.sendFile(HTML_FILE)
 })
 
-/*app.get('/template', (req, res)=> {
-    res.render('forum')
-})*/
+app.use(express.static('public'));
+app.use(express.static('src/views'));
+app.use(express.static('src/views/dist'));
+app.use(express.json());
+app.use(cors());
 
 const DIST_DIR = path.join(__dirname, "./src/views/dist");
 const HTML_FILE = path.join(DIST_DIR, "index.html");
@@ -105,32 +121,7 @@ const HTML_FILE = path.join(DIST_DIR, "index.html");
 app.set('views', './src/views');
 app.set('view engine', 'ejs');
 
-//MySQL integration
-
-const connection = mysql.createConnection({     //create a .env file to assign your database information to the MYSQL variables
-    host:  process.env.MYSQL_HOST,
-    user:  process.env.MYSQL_USER,
-    password:  process.env.MYSQL_PASSWORD,
-    database:  process.env.MYSQL_DATABASE
-})
-
-connection.connect(err => {
-    if (err) {
-        console.error('There was a problem connecting to the database')
-    } else {
-        console.log('The connection is working')
-    }
-})
-
-connection.query('SELECT * FROM registration', (fields, err) => {
-if (err) {
-        console.error('No data selected')
-    } else {
-        console.log('Data selected')
-    }    
-})
-
-connection.end();
+//server port
 
 app.listen(port, () => {
     console.log(`Hoop Squad app listening on port ${port}`)
