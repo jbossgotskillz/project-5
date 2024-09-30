@@ -2,7 +2,7 @@
   "name": "hoop_squad",
   "version": "1.0.0",
   "description": "uta quickstart - project 5",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "jest",
     "start": "node server.js",
