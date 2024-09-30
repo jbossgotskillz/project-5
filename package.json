@@ -1,17 +1,17 @@
 {
   "name": "hoop_squad",
   "version": "1.0.0",
-  "description": "project 5 server file",
+  "description": "uta quickstart - project 5",
   "main": "index.js",
   "scripts": {
     "test": "jest",
     "start": "node server.js",
-    "build": "del dist && webpack --mode development",
+    "build": "del dist && webpack --mode production",
     "dev": "nodemon server.js"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/jbossgotskillz/project-5-new-version"
+    "url": "https://github.com/jbossgotskillz/project-5"
   },
   "keywords": [
     "project",
@@ -32,10 +32,11 @@
     "bootstrap": "^5.3.3",
     "cors": "^2.8.5",
     "ejs": "^3.1.10",
-    "express": "^4.19.2",
+    "express": "^4.21.0",
     "fs": "0.0.1-security",
     "jsonwebtoken": "^9.0.2",
     "mysql": "^2.18.1",
+    "mysql2": "^3.11.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.3.0"
@@ -52,7 +53,7 @@
     "sass-loader": "^12.6.0",
     "style-loader": "^3.3.4",
     "template-ejs-loader": "^0.9.4",
-    "webpack": "^5.93.0",
+    "webpack": "^5.95.0",
     "webpack-cli": "^4.9.2"
   },
   "engines": {
