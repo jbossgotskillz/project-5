@@ -9,13 +9,15 @@ const port = 3000
 
 //database integration
 
-const connection = mysql.createConnection({
+const connection = mysql.createConnection(process.env.JAWSDB_URL)
+
+/*const connection = mysql.createConnection({
     host:  ['localhost', 'hoop-squad-64060117364e.herokuapp.com'],
     port:  3306,
     user:  'root',
     password:  'Therealjboss#1!',
     database:  'hoop_squad_db'
-});
+});*/
 
 //user registration
 
@@ -72,7 +74,7 @@ app.post('/login', (req, res) => {
 })
 
 app.delete('/dashboard', (req, res) => {
-    res.redirect('/logout')
+    res.redirect('/thankyou')
 })
 
 //server routing
