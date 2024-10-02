@@ -5,7 +5,7 @@ const bcrypt = require('bcryptjs')
 
 const path = require('path')
 const app = express()
-const port = 3000
+const port = process.env.PORT || 3000
 
 //database integration
 
@@ -18,6 +18,14 @@ const connection = mysql.createConnection(process.env.JAWSDB_URL)
     password:  'Therealjboss#1!',
     database:  'hoop_squad_db'
 });*/
+
+connection.connect((err) => {
+  if (err) {
+    console.error('There was a problem connecting to the database: ' + err.stack);
+    return;
+  }
+  console.log('The connection is working:  ID = ' + connection.threadId);
+});
 
 //user registration
 
