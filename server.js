@@ -58,7 +58,7 @@ app.post('/registration', (req, res) => {
     });
 });
 
-app.post('/login', (req, res) => {
+/*app.post('/login', (req, res) => {
     const { username, email, password } = req.body;
 
     try {
@@ -79,7 +79,48 @@ app.post('/login', (req, res) => {
     } catch (error) {
         console.error(error);
     }
-})
+})*/
+
+
+app.post('/login', (req, res) => {
+    const { username, email, password } = req.body;
+
+        if (!username || !email || !password) {
+            res.send('Error logging in user')
+        }
+        connection.query('SELECT * FROM registration WHERE username = ? AND email = ? and new_password = ?',
+        [username, email, password], (err, results) => {
+            
+        //connection.query('SELECT * FROM registration WHERE username = ? AND email = ?', 
+        //[username, email], (err, results) => {
+
+            if (err) {
+                console.error('Invalid login credentials')
+            } else {
+                res.redirect('/dashboard')
+            }
+
+            
+           //const user = results[0];
+                      
+           /*const isMatch = bcrypt.compare(password, user.password, (err) => {
+                if (err) {
+                    console.error('Error comparing passwords: ', err);
+                } 
+                
+                if(!isMatch) {
+                    res.send('Passwords do not match')
+                } else {
+                    res.send('Login successful');
+                    //res.redirect('/dashboard')
+                }
+                console.log(user)
+
+            })*/
+        }
+    )}
+
+)
 
 app.delete('/dashboard', (req, res) => {
     res.redirect('/thankyou')
