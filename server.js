@@ -11,14 +11,6 @@ const port = process.env.PORT || 3000
 
 const connection = mysql.createConnection(process.env.JAWSDB_URL)
 
-/*const connection = mysql.createConnection({
-    host:  ['localhost', 'hoop-squad-64060117364e.herokuapp.com'],
-    port:  3306,
-    user:  'root',
-    password:  'Therealjboss#1!',
-    database:  'hoop_squad_db'
-});*/
-
 connection.connect((err) => {
   if (err) {
     console.error('There was a problem connecting to the database: ' + err.stack);
@@ -46,13 +38,8 @@ app.post('/registration', (req, res) => {
             if (err) {
                 console.error('Error inserting user:', err);
                 return res.status(500).send('Error registering user');
-                //res.redirect('/registration')
-
             }
-
-            //res.status(200).send('User registered successfully');
             res.redirect('/login')
-
         }
     );
     });
@@ -89,11 +76,7 @@ app.post('/login', (req, res) => {
             res.send('Error logging in user')
         }
         connection.query('SELECT * FROM registration WHERE username = ? AND email = ? and new_password = ?',
-        [username, email, password], (err, results) => {
-            
-        //connection.query('SELECT * FROM registration WHERE username = ? AND email = ?', 
-        //[username, email], (err, results) => {
-
+        [username, email, password], (err, results) => { {
             if (err) {
                 console.error('Invalid login credentials')
             } else {
@@ -123,7 +106,17 @@ app.post('/login', (req, res) => {
 )
 
 app.delete('/dashboard', (req, res) => {
-    res.redirect('/thankyou')
+    let userId = req.params.id;
+
+    connection.query('DELETE FROM registration WHERE id = ?', 
+    [userId], (err, result) => {
+      if (err) {
+        console.error('Error deleting user: ' + err.stack);
+        res.send('User could not be deleted');
+      } else {
+        res.redirect('/thankyou');
+      }
+    });
 })
 
 //server routing
