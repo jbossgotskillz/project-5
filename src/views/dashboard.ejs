@@ -35,9 +35,6 @@
         </div>
         <ul class="nav-item">
             <a class="nav-link" href="logout">Get off the court (Logout)</a>
-    <!--        <form action="logout?_method=DELETE" method="POST">
-                <a class="nav-link" href="#">Get off the court (Logout)</a>
-            </form>-->
         </ul>
     </nav>
 
@@ -68,9 +65,9 @@
     <div class="home-box text-center my-4">
         <img src="./images/basketball_player6.jpg" class="img-player" height="180" alt="home box">
         <p>Don't want to play for us no more, player?  That's alright.  Go ahead and quit.</p>
-        <div class="nav-item text-center">
-            <a class="btn btn-light" href="thankyou" role="button">Drop out of the team</a>
-        </div>
+        <form class="my-4" method="POST" action="dashboard/id?_method=DELETE">
+            <button type="submit" class="btn btn-light">Drop out of the team</button>
+        </form>
     </div>
 
     <%# footer %>
