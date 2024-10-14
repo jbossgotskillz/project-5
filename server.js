@@ -76,7 +76,7 @@ app.post('/login', (req, res) => {
             res.send('Error logging in user');
         }
         connection.query('SELECT * FROM registration WHERE username = ? AND email = ? AND new_password = ?',
-        [username, email, password], (err, results) => { {
+        [username, email, password], (err, results) => {
             if (err) {
                 res.send('Invalid login credentials: ', err);
                 console.error('Invalid login credentials');
