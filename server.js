@@ -1,7 +1,7 @@
 const express = require('express')
 const cors = require('cors')
 const mysql = require('mysql2')
-const bcrypt = require('bcryptjs')
+//const bcrypt = require('bcryptjs')
 const methodOverride = require('method-override')
 
 const path = require('path')
@@ -27,15 +27,15 @@ app.use(express.urlencoded({extended: false}))
 app.post('/registration', (req, res) => {
     const { username, email, password } = req.body;
 
-    bcrypt.hash(password, 10, (err, hash) => {
+    /*bcrypt.hash(password, 10, (err, hash) => {
         if (err) {
             console.error('Error hashing password:', err);
             return res.status(500).send('Error registering user');
         }
-        console.log(username, email, password)
+        console.log(username, email, password)*/
 
         connection.query('INSERT INTO registration (username, email, new_password) VALUES (?, ?, ?)',
-        [username, email, hash], (err, result) => {
+        [username, email, password], (err, result) => {
             if (err) {
                 console.error('Error inserting user: ', err);
                 return res.status(500).send('Error registering user');
