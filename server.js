@@ -1,7 +1,7 @@
 const express = require('express')
 const cors = require('cors')
 const mysql = require('mysql2')
-const bcrypt = require('bcryptjs')
+//const bcrypt = require('bcryptjs')
 const methodOverride = require('method-override')
 
 const path = require('path')
@@ -23,6 +23,7 @@ connection.connect((err) => {
 //user registration
 
 app.use(express.urlencoded({extended: false}))
+app.use(methodOverride('_method'))
 
 app.post('/registration', (req, res) => {
     const { username, email, password } = req.body;
