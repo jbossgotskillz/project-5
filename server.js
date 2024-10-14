@@ -2,6 +2,7 @@ const express = require('express')
 const cors = require('cors')
 const mysql = require('mysql2')
 const bcrypt = require('bcryptjs')
+const methodOverride = require('method-override')
 
 const path = require('path')
 const app = express()
@@ -36,7 +37,7 @@ app.post('/registration', (req, res) => {
         connection.query('INSERT INTO registration (username, email, new_password) VALUES (?, ?, ?)',
         [username, email, hash], (err, result) => {
             if (err) {
-                console.error('Error inserting user:', err);
+                console.error('Error inserting user: ', err);
                 return res.status(500).send('Error registering user');
             }
             res.redirect('/login')
@@ -73,12 +74,13 @@ app.post('/login', (req, res) => {
     const { username, email, password } = req.body;
 
         if (!username || !email || !password) {
-            res.send('Error logging in user')
+            res.send('Error logging in user');
         }
-        connection.query('SELECT * FROM registration WHERE username = ? AND email = ? and new_password = ?',
+        connection.query('SELECT * FROM registration WHERE username = ? AND email = ? AND new_password = ?',
         [username, email, password], (err, results) => { {
             if (err) {
-                console.error('Invalid login credentials')
+                res.send('Invalid login credentials: ', err);
+                console.error('Invalid login credentials');
             } else {
                 res.redirect('/dashboard')
             }
