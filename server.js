@@ -1,7 +1,7 @@
 const express = require('express')
 const cors = require('cors')
 const mysql = require('mysql2')
-//const bcrypt = require('bcryptjs')
+const bcrypt = require('bcryptjs')
 const methodOverride = require('method-override')
 
 const path = require('path')
@@ -35,7 +35,7 @@ app.post('/registration', (req, res) => {
         console.log(username, email, password)*/
 
         connection.query('INSERT INTO registration (username, email, new_password) VALUES (?, ?, ?)',
-        [username, email, password], (err, result) => {
+        [username, email, password], (err, results) => {
             if (err) {
                 console.error('Error inserting user: ', err);
                 return res.status(500).send('Error registering user');
@@ -43,7 +43,6 @@ app.post('/registration', (req, res) => {
             res.redirect('/login')
         }
     );
-    });
 });
 
 /*app.post('/login', (req, res) => {
