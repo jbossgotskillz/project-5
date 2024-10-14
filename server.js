@@ -107,7 +107,7 @@ app.post('/login', (req, res) => {
 
 )
 
-app.delete('/dashboard/:id', (req, res) => {
+app.delete('/dashboard/id', (req, res) => {
     let userId = req.params.id;
 
     connection.query('DELETE FROM registration WHERE id = ?', 
