@@ -8,15 +8,15 @@ Comments:
 
 --Navigation--
 
-The Hoop Squad app is made up of seven pages:  Main, Home, Registration, Login, Dashboard, Logout, and Goodbye.  The Main page serves as the root page.  From here, you can move to the Home page, and beyond that, you can move to the either the Registration page or the Login page.  It is possible to go back and forth between the Registration and Login pages when not submitting a form.  Meanwhile, submitting a form on the Registration page takes you to the Login page if it is valid, and then submitting a form on the Login page takes you to the Dashboard page if it is valid.  From the Dashboard page are routes that lead to the Forum page, the Logout page, and the Goodbye page.  The Forum page takes you back to the Dashboard page, while the Logout page takes you back to the Home page, and the Goodbye page takes you back to the Main page.
+The Hoop Squad app is made up of eight pages:  Main, Home, Registration, Login, Dashboard, Forum, Logout, and Goodbye.  The Main page serves as the root page.  From here, you can move to the Home page, and beyond that, you can move to either the Registration page or the Login page.  It is possible to go back and forth between the Registration and Login pages when not submitting a form.  Meanwhile, submitting a form on the Registration page takes you to the Login page if it is valid, and then submitting a form on the Login page takes you to the Dashboard page if it is valid.  From the Dashboard page are routes that lead to the Forum page, the Logout page, and the Goodbye page.  The Forum page takes you back to the Dashboard page, while the Logout page takes you back to the Home page, and the Goodbye page takes you back to the Main page.
 
 --Registration--
 
-Using the app requires you to register a new account.  This is done on the Registration page.  After creating a new username, a new email address, and a new password, you will be able to enter this data into the Login page.  The fields in the Registration and Login pages are all required, and not filling them in correctly (or not filling them in at all) causes invalid feedback messages to appear.  Said messages send valid feedback when a field is entered correctly.  Also, entering the wrong credentials on the Login page returns an error message instead of logging you in.  Going to the Goodbye page deletes your account.
+Using the app requires you to register a new account.  This is done on the Registration page.  After creating a new username, a new email address, and a new password, you will be able to enter this data into the Login page.  The fields in the Registration and Login pages are all required, and not filling them in correctly (or not filling them in at all) causes invalid feedback messages to appear.  Said messages give valid feedback when a field is entered correctly.  Also, entering the wrong credentials on the Login page returns an error message instead of logging you in.  Going to the Goodbye page deletes your account.
 
 --Database--
 
-Hoop Squad comes with a database that is used for storing information pertaining to registered users.  Whenever you register a new user onto the Registration page, the credentials are added to the database.  P.S.:  If you want to use the registration database that is connected to the server, you need to download MySQL, install dotenv and create a .env file.  Once you do this, you should write your MySQL information in the .env file, due to them being replaced with "process.env" variables on server.js (for example, in .env, for the user variable, (where it reads "process.env.MYSQL_USER", write your MySQL username).  You also need to configure dotenv onto server for the database to work in production.  This is set up in order for you to build your own MySQL database and to keep other users from accessing your information directly from the server.
+Hoop Squad comes with a database that is used for storing information pertaining to registered users.  Whenever you register a new user onto the Registration page, the credentials are added to the database.  When logging in, the app looks for records in the database and allows you to enter the dashboard if the credentials match.
 
 --Forum--
 
@@ -30,7 +30,7 @@ Technologies:  html, css, js, react, express, sql
 
 Minimal Requirements:  Node 13.14.0, NPM 6.14.4, Express 4.19.2, EJS 3.1.10, MySQL 8.0.38, React 18.3.1
 
-Improvements:  add Gulp for testing and debugging, make the question and reply posts on each Forum page remain visible after changing routes, make the username of the currently logged-in user appear on the Dashboard page, use express-sessions to keep track of individual login sessions
+Improvements:  add Gulp for testing and debugging, make the question and reply posts on each Forum page remain visible after changing routes, make the username of the currently logged-in user appear on the Dashboard page, add login verification, set it up to where records will be deleted when going to the Goodbye page
 
 
 
